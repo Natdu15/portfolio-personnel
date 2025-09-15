@@ -1,0 +1,150 @@
+/* ===== Variables par défaut (mode sombre) ===== */
+:root {
+  --bg-color: #111;
+  --text-color: #fff;
+  --accent-color: #ff2400;
+  --overlay-bg: rgba(0, 0, 0, 0.55);
+}
+
+
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--bg-color);
+}
+
+.lien-nav a {
+  color: var(--text-color);
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.lien-nav a:hover {
+  color: var(--accent-color);
+}
+
+#logo {
+  height: 40px;
+  filter: drop-shadow(0 0 5px var(--accent-color));
+  transition: filter 0.5s ease;
+}
+
+/* Sections */
+.section-bg {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background-color: var(--overlay-bg);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 80%;
+  justify-content: left;
+}
+
+.youtube,.jeux-vidéos, .social, .travail, .message {
+    display: flex;
+    justify-content: flex-start; /* place le texte à gauche */
+    align-items: center; /* centré verticalement */
+    padding: 0 60px; /* espace à gauche/droite */
+}
+
+.youtube-side,.jeux-vidéos-side, .social-side, .travail-side, .message-side {
+    background-color: rgba(0, 0, 0, 0.6); /* fond sombre semi-transparent */
+    padding: 20px 30px;
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+.youtube-side h2, .jeux-vidéos-side h2, .social-sid h2, .travail-side h2, .message-side h2 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.youtube-side p, .jeux-vidéos-side p, .social-side p, .travail-side p, .message-side p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.btn-retour {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--bloc-bg);
+  color: rgb(195, 255, 0);
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: var(--bloc-shadow);
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.btn-retour:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+
+/* ===== FOOTER ===== */
+.footer {
+  position: relative;
+  background: url("binaire.jpg") no-repeat center center/cover; /* ton image de code binaire */
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* voile sombre pour la lisibilité */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75); /* voile noir transparent */
+  z-index: 0;
+}
+
+/* contenu au-dessus du voile */
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #08ff3d; /* vert matrix au hover */
+  transform: scale(1.2);
+}
+

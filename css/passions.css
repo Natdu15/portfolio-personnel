@@ -1,0 +1,237 @@
+/* ===== Réinitialisation de base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ===== Variables par défaut (mode sombre - rouge) ===== */
+:root {
+  --bg-color: #111; /* sombre */
+  --text-color: #fff;
+  --accent-color: #ff2400; /* rouge vif */
+  --bloc-bg: rgba(255, 36, 0, 0.85); /* rouge */
+  --bloc-shadow: 0 4px 12px rgba(255, 36, 0, 0.5);
+  --bloc-border: 2px solid rgba(255, 36, 0, 0.9);
+  --footer-hover-color: #ffcc00;
+}
+
+.topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.topbar h1 {
+  font-size: 2rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#darkModeToggle img {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
+}
+/* ===== HEADER / NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: center; /* ou center pour tout centrer */
+  align-items: center;
+  text-align: center;
+  background-color: none;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  transition: background-color 0.5s ease;
+}
+
+.h1 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  transition: color 0.5s ease;
+  text-align: center;
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar button img {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
+  transition: filter 0.5s ease;
+}
+
+/* ===== Navigation ===== */
+.lien-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lien-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.lien-nav a:hover {
+  color: var(--accent-color);
+}
+
+/* ==== PAGE ACTUELLE ==== */
+.lien-nav a.actif {
+  color: var(--accent-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* ===== LOGO Centré ===== */
+.logo {
+  display: flex;
+  justify-content: right;
+  margin: 2rem auto 1rem;
+}
+
+#logo {
+  width: 50px;
+  height: auto;
+  filter: drop-shadow(0 0 5px var(--accent-color));
+  transition: filter 0.5s ease;
+}
+
+/* ===== Présentation ===== */
+.présentation {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  transition: color 0.5s ease;
+}
+
+
+.jeux-vidéos,
+.informatique,
+.internet,
+.sport {
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  background: var(--bloc-bg);
+  box-shadow: var(--bloc-shadow);
+  border-bottom: var(--bloc-border);
+  color: var(--text-color);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.jeux-vidéos:hover,
+.informatique:hover,
+.internet:hover,
+.sport:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* ===== Blocs images ===== */
+.jeux-vidéos img,
+.informatique img,
+.internet img,
+.sport img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: border-color 0.5s ease;
+}
+
+/* ===== Container Grid ===== */
+.content {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 blocs par ligne */
+  gap: 2rem;
+  padding: 2rem;
+  z-index: 1;
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lien-nav {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .logo {
+    margin-top: 1rem;
+  }
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: var(--bloc-bg);
+  color: var(--text-color);
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: var(--text-color);
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--footer-hover-color);
+  transform: scale(1.2);
+}

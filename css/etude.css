@@ -1,0 +1,238 @@
+/* ===== Réinitialisation de base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ===== Variables par défaut (mode sombre - rouge) ===== */
+:root {
+  --bg-color: #111; /* sombre */
+  --text-color: #fff;
+  --accent-color: #ff2400; /* rouge vif */
+  --bloc-bg: rgba(255, 36, 0, 0.85); /* rouge */
+  --bloc-shadow: 0 4px 12px rgba(255, 36, 0, 0.5);
+  --bloc-border: 2px solid rgba(255, 36, 0, 0.9);
+  --footer-hover-color: #ffcc00;
+}
+
+/* ===== Mode clair (vert) ===== */
+.light-mode {
+  --bg-color: #f5f5f5;
+  --text-color: #000000;
+  --accent-color: #08ff3d; /* vert vif */
+  --bloc-bg: rgba(0, 255, 100, 0.85); /* vert clair */
+  --bloc-shadow: 0 4px 12px rgba(0, 255, 100, 0.5);
+  --bloc-border: 2px solid rgba(0, 255, 100, 0.9);
+}
+.topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.topbar h1 {
+  font-size: 2rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#darkModeToggle img {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
+}
+/* ===== HEADER / NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: center; /* ou center pour tout centrer */
+  align-items: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  transition: background-color 0.5s ease;
+}
+
+.h1 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  transition: color 0.5s ease;
+  text-align: center;
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar button img {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
+  transition: filter 0.5s ease;
+}
+
+/* ===== Navigation ===== */
+.lien-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lien-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.lien-nav a:hover {
+  color: var(--accent-color);
+}
+
+/* ==== PAGE ACTUELLE ==== */
+.lien-nav a.actif {
+  color: var(--accent-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* ===== LOGO Centré ===== */
+.logo {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 1rem;
+}
+
+#logo {
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 0 5px var(--accent-color));
+  transition: filter 0.5s ease;
+}
+
+/* ===== Présentation ===== */
+.présentation {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  transition: color 0.5s ease;
+}
+
+/* Timeline CSS */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding-left: 40px;
+  border-left: 3px solid var(--accent-color, #0ff);
+  width: 100%;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 20px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent-color, #0ff);
+  border-radius: 50%;
+  border: 3px solid var(--bg-color, #111);
+  box-sizing: content-box;
+}
+
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: var(--accent-color, #0ff);
+}
+
+.timeline-content h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.2rem;
+  color: var(--text-color, #fff);
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--text-color, #ddd);
+}
+.timeline-content img {
+  max-width: 100%;   /* ne dépasse jamais la largeur du conteneur */
+  height: auto;      /* garde les proportions */
+  max-height: 300px; /* limite la hauteur à 300px (ajuste selon besoin) */
+  object-fit: cover; /* recadre si besoin sans déformer */
+  border-radius: 8px; /* optionnel, un peu d’arrondi */
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 20px;
+    border-left-width: 2px;
+  }
+
+  .timeline-item::before {
+    left: -7px;
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+  }
+}
+
+.footer {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: var(--text-color);
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--footer-hover-color);
+  transform: scale(1.2);
+}
