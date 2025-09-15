@@ -125,7 +125,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("images/jeux-vidéos.jpg"); 
+  background-image: url("jeux-vidéos.jpg"); 
   background-size: cover;
   background-position: center;
   opacity: 1.5;
@@ -262,4 +262,5 @@ body {
 .social-links a:hover {
   color: var(--footer-hover-color);
   transform: scale(1.2);
+
 }
