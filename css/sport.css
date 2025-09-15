@@ -103,7 +103,35 @@ body {
   background-color: var(--bloc-bg);
   transform: translateY(-3px);
 }
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lien-nav {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .logo {
+    margin-top: 1rem;
+  }
+}
 .navigation a:hover {
   background: var(--accent-color);
   color: #fff;
@@ -143,3 +171,4 @@ body {
   transform: scale(1.2);
 
 }
+
