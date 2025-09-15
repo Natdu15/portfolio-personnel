@@ -1,4 +1,4 @@
-/* ===== Réinitialisation de base ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* ===== Variables par défaut (mode sombre - rouge) ===== */
+
 :root {
   --bg-color: #111; /* sombre */
   --text-color: #ff2400;
@@ -23,7 +23,7 @@ body {
   --footer-hover-color: #ffcc00;
 }
 
-/* ===== Mode clair (vert) ===== */
+
 .light-mode {
   --bg-color: #f5f5f5;
   --text-color: #000000;
@@ -45,10 +45,10 @@ body {
   height: 24px;
   filter: invert(100%);
 }
-/* ===== HEADER / NAVBAR ===== */
+
 .navbar {
   display: flex;
-  justify-content: center; /* ou center pour tout centrer */
+  justify-content: center;
   align-items: center;
   text-align: center;
   background-color: none;
@@ -71,7 +71,6 @@ body {
   transition: filter 0.5s ease;
 }
 
-/* ===== Navigation ===== */
 .lien-nav {
   display: flex;
   gap: 1rem;
@@ -89,14 +88,13 @@ body {
   color: var(--accent-color);
 }
 
-/* ==== PAGE ACTUELLE ==== */
 .lien-nav a.actif {
   color: var(--accent-color);
   font-weight: bold;
   text-decoration: underline;
 }
 
-/* ===== LOGO Centré ===== */
+
 .logo {
   display: flex;
   justify-content: right;
@@ -110,7 +108,7 @@ body {
   transition: filter 0.5s ease;
 }
 
-/* ===== Présentation ===== */
+
 .présentation {
   text-align: center;
   padding: 1rem 2rem;
@@ -120,7 +118,7 @@ body {
 }
 
 .background-jeux {
-  position: fixed; /* au lieu de absolute */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -140,7 +138,7 @@ body {
   z-index: 1;
   position: relative;
   color: var(--accent-color);
-  margin-top: 330px; /* ajuste selon la hauteur que tu veux */
+  margin-top: 330px;
 }
 
 .bloc-jeu {
@@ -162,9 +160,6 @@ body {
   height: auto;
   object-fit: cover;
 }
-
-
-
 
 .ordinateur ul,
 .téléphones ul,
@@ -203,7 +198,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 900px) {
   .content {
     grid-template-columns: repeat(2, 1fr);
@@ -233,7 +227,6 @@ body {
   }
 }
 
-/* ===== Footer ===== */
 .footer {
   background-color: var(--bloc-bg);
   color: var(--accent-color);
