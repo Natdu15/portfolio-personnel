@@ -85,8 +85,23 @@ body {
 }
 
 .btn-retour {
-  background: var(--accent-color);
-  color: #fff !important;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--bloc-bg);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: var(--bloc-shadow);
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.btn-retour:hover {
+  background-color: var(--bloc-bg);
+  transform: translateY(-3px);
 }
 
 .navigation a:hover {
@@ -126,4 +141,5 @@ body {
 .social-links a:hover {
   color: #08ff3d;
   transform: scale(1.2);
+
 }
