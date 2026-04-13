@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,26 +15,65 @@
       text-align: center;
       position: relative;
     }
+
     .home-hero .eyebrow {
       display: inline-block;
       padding: 0.3rem 0.9rem;
-      background: var(--accent-dim); color: var(--accent);
-      font-family: 'Syne', sans-serif; font-size: 0.75rem;
-      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      border-radius: 50px; margin-bottom: 1.2rem;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
     }
-    .home-hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.0; margin-bottom: 1rem; }
-    .home-hero h1 .name { color: var(--accent); display: block; }
-    .home-hero p { font-size: 1.15rem; color: var(--text2); max-width: 520px; margin: 0 auto 2.5rem; }
-    .home-hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .home-hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.0;
+      margin-bottom: 1rem;
+    }
+
+    .home-hero h1 .name {
+      color: var(--accent);
+      display: block;
+    }
+
+    .home-hero p {
+      font-size: 1.15rem;
+      color: var(--text2);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .home-hero .cta-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.8rem 1.8rem; border: 1.5px solid var(--border);
-      border-radius: 50px; font-family: 'Syne', sans-serif;
-      font-size: 0.88rem; font-weight: 600; color: var(--text2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text2);
       transition: border-color 0.25s, color 0.25s, background 0.25s;
     }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
 
     /* Cards grid */
     .home-grid {
@@ -44,8 +84,18 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    @media(max-width:900px){ .home-grid { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:560px){ .home-grid { grid-template-columns: 1fr; } }
+
+    @media(max-width:900px) {
+      .home-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:560px) {
+      .home-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .home-card {
       position: relative;
@@ -54,50 +104,90 @@
       cursor: pointer;
       aspect-ratio: 4/3;
       border: 1px solid var(--border);
-      transition: transform 0.38s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.38s ease, border-color 0.3s;
+      transition: transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.38s ease, border-color 0.3s;
     }
+
     .home-card:hover {
       transform: translateY(-8px) scale(1.01);
       border-color: rgba(var(--accent-rgb), 0.4);
-      box-shadow: 0 20px 56px rgba(0,0,0,0.35), 0 0 32px rgba(var(--accent-rgb), 0.12);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.35), 0 0 32px rgba(var(--accent-rgb), 0.12);
     }
+
     .home-card img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.55s ease;
     }
-    .home-card:hover img { transform: scale(1.06); }
+
+    .home-card:hover img {
+      transform: scale(1.06);
+    }
+
     .home-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
-      display: flex; flex-direction: column; justify-content: flex-end;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.2) 55%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       padding: 1.4rem;
       transition: background 0.3s;
     }
+
     .home-card:hover .home-card-overlay {
-      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.25) 55%, transparent 100%);
     }
+
     .home-card-label {
-      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.3rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
     }
+
     .home-card-title {
-      font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700;
-      color: #fff; margin-bottom: 0.4rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
     }
-    .home-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
+
+    .home-card-desc {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.5;
+    }
+
     .home-card-arrow {
-      position: absolute; top: 1.2rem; right: 1.2rem;
-      width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 0.8rem;
-      transform: translateX(-4px); opacity: 0;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.8rem;
+      transform: translateX(-4px);
+      opacity: 0;
       transition: opacity 0.25s, transform 0.25s;
     }
-    .home-card:hover .home-card-arrow { opacity: 1; transform: translateX(0); }
+
+    .home-card:hover .home-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
   </style>
 </head>
+
 <body>
   <div class="page-overlay"></div>
   <header class="navbar" id="navbar">
@@ -125,7 +215,8 @@
         Bonjour,<br>je suis
         <span class="name">Nathan Chapuis</span>
       </h1>
-      <p class="reveal">Étudiant en BUT Science des Données à l'IUT Clermont Auvergne · Passionné d'informatique, de sport et de jeux vidéos.</p>
+      <p class="reveal">Étudiant en BUT Science des Données à l'IUT Clermont Auvergne · Passionné d'informatique, de
+        sport et de jeux vidéos.</p>
       <div class="cta-row reveal">
         <a href="etude.html" class="btn-primary"><i class="fas fa-graduation-cap"></i> Mon parcours</a>
         <a href="contact.html" class="btn-ghost"><i class="fas fa-envelope"></i> Me contacter</a>
@@ -185,9 +276,10 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <p>© 2025 — Nathan Chapuis · Tous droits réservés</p>
+      <p>© <span id="year"></span> Nathan. Tout droit réservés ! </p>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/chapuis-nathan-3a4095335" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/chapuis-nathan-3a4095335" target="_blank" rel="noopener"
+          aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:nathanchapuis15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
@@ -196,4 +288,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="js/app.js"></script>
 </body>
+
 </html>

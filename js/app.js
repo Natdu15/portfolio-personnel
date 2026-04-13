@@ -1,14 +1,9 @@
-/* ─────────────────────────────────────────────────────────
-   app.js — Nathan Chapuis Portfolio
-   GSAP animations · theme toggle · page transitions · navbar
-───────────────────────────────────────────────────────── */
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  // ── GSAP ──────────────────────────────────────────────
-  gsap.registerPlugin(ScrollTrigger);
 
-  // ── PAGE ENTER ────────────────────────────────────────
+  gsap.registerPlugin(ScrollTrigger);
   const overlay = document.querySelector('.page-overlay');
   if (overlay) {
     gsap.fromTo(overlay,
@@ -17,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   }
 
-  // Page header stagger entrance
   const eyebrow = document.querySelector('.page-header .eyebrow');
   const h1      = document.querySelector('.page-header h1');
   const subP    = document.querySelector('.page-header p:not(.eyebrow)');
@@ -25,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (h1)      gsap.from(h1,      { y: 28, opacity: 0, duration: 0.65, delay: 0.65, ease: 'power2.out' });
   if (subP)    gsap.from(subP,    { y: 16, opacity: 0, duration: 0.55, delay: 0.82, ease: 'power2.out' });
 
-  // Hero sections (jeux, informatique)
   const heroContent = document.querySelector('.jeux-hero-content, .info-hero-content');
   if (heroContent) {
     gsap.from(heroContent.children, {
@@ -33,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── SCROLL REVEAL — singles ───────────────────────────
+
   gsap.utils.toArray('.reveal').forEach(function (el) {
     gsap.to(el, {
       opacity: 1, y: 0, duration: 0.75, ease: 'power2.out',
@@ -41,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ── SCROLL REVEAL — staggered groups ─────────────────
   gsap.utils.toArray('.reveal-group').forEach(function (container) {
     const children = container.querySelectorAll('.reveal-item');
     gsap.from(children, {
@@ -50,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ── SKILL BARS ────────────────────────────────────────
+  //  SKILL BARS 
   gsap.utils.toArray('.skill-fill').forEach(function (bar) {
     const target = bar.getAttribute('data-width') || '0%';
     gsap.to(bar, {
@@ -59,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ── TIMELINE ──────────────────────────────────────────
+  //  TIMELINE 
   gsap.utils.toArray('.timeline-item').forEach(function (item, i) {
     gsap.from(item, {
       opacity: 0, x: -30, duration: 0.65, ease: 'power2.out',
@@ -67,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ── PARALLAX CONTENT ─────────────────────────────────
+  //  CONTENT 
   gsap.utils.toArray('.parallax-content').forEach(function (el) {
     gsap.from(el, {
       opacity: 0, y: 40, duration: 0.8, ease: 'power2.out',
@@ -75,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ── NAVBAR SCROLL ────────────────────────────────────
+  //  NAVBAR SCROLL 
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     ScrollTrigger.create({
@@ -85,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── MOBILE BURGER ────────────────────────────────────
+  //  MOBILE BURGER 
   const burger   = document.querySelector('.nav-burger');
   const navLinks = document.querySelector('.nav-links');
   if (burger && navLinks) {
@@ -101,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── THEME TOGGLE ─────────────────────────────────────
+  //  THEME TOGGLE 
   const themeBtn = document.querySelector('.theme-toggle');
 
   function updateThemeIcon() {
@@ -123,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── PAGE LEAVE TRANSITIONS ───────────────────────────
+  //  PAGE TRANSITIONS 
   document.querySelectorAll('a[href]').forEach(function (link) {
     const href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http') ||
@@ -146,13 +138,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ── ACTIVE NAV LINK ──────────────────────────────────
+  //  NAV LIEN ACTIF
   const current = window.location.pathname.split('/').pop() || 'home.html';
   document.querySelectorAll('.nav-links a').forEach(function (a) {
     if (a.getAttribute('href') === current) a.classList.add('active');
   });
 
-  // ── CARD HOVER GLOW (cards on home + passions) ───────
   document.querySelectorAll('.home-card, .passion-card, .platform-card, .project-card, .contact-card, .comp-block').forEach(function (card) {
     card.addEventListener('mouseenter', function () {
       gsap.to(card, { scale: card.classList.contains('home-card') || card.classList.contains('passion-card') ? 1.01 : 1, duration: 0.3, ease: 'power2.out' });
@@ -163,3 +154,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+document.getElementById("year").textContent = new Date().getFullYear();
