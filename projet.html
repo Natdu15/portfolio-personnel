@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets — Nathan Chapuis</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="js/theme.js"></script>
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 0 2rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), border-color 0.3s, box-shadow 0.35s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(var(--accent-rgb), 0.35);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), 0 0 20px rgba(var(--accent-rgb), 0.08);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .project-meta {
+      flex: 1;
+    }
+
+    .project-status {
+      display: inline-block;
+      padding: 0.18rem 0.6rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .status-wip {
+      background: rgba(255, 165, 0, 0.15);
+      color: #ffa500;
+    }
+
+    .status-dev {
+      background: rgba(var(--accent-rgb), 0.12);
+      color: var(--accent);
+    }
+
+    .project-title {
+      font-family: "Syne", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .tech-tag {
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text2);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-overlay"></div>
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="NC"></a>
+    <nav class="nav-links">
+      <a href="home.html">Accueil</a>
+      <a href="etude.html">Études</a>
+      <a href="passions.html">Passions</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projet.html" class="active">Projets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Thème"><i class="fas fa-moon"></i></button>
+      <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <div class="page-header">
+      <p class="eyebrow">Création personnelle</p>
+      <h1>Mes <span>Projets</span></h1>
+      <p>Projets conçus pendant ma formation et en dehors.</p>
+    </div>
+
+    <div class="projects-grid reveal-group">
+
+      <div class="project-card reveal-item">
+        <div class="project-header">
+          <div class="project-icon"><i class="fas fa-trophy"></i></div>
+          <div class="project-meta">
+            <div class="project-status status-dev">Fini</div>
+            <div class="project-title">
+              <a href="https://natdu15.github.io/site-de-manga/" target="_blank">Site de tournoi Manga / Animé </a> </div>
+          </div>
+        </div>
+        <p class="project-desc">
+          Plateforme interactive permettant aux utilisateurs d'organiser des
+          <strong>duels et tournois entre mangas et animés</strong>.
+          Les votes déterminent les tendances et préférences du moment. (base de données expiré donc les images sont plus présente)
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal-item">
+        <div class="project-header">
+          <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="project-meta">
+            <div class="project-status status-dev">Fini</div>
+            <div class="project-title"> <a href="https://natdu15.github.io/SAE-Vulgarisation-/" target="_blank">Vulgarisation du BUT SD</a> </div>
+          </div>
+        </div>
+        <p class="project-desc">
+          Site visant à <strong>rendre accessibles les notions du BUT Science des Données</strong>
+          au grand public. Présente les cours, projets et compétences acquises de manière pédagogique.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal-item">
+        <div class="project-header">
+          <div class="project-icon"><i class="fas fa-dragon"></i></div>
+          <div class="project-meta">
+            <div class="project-status status-wip">Conception</div>
+            <div class="project-title">TCG Numérique</div>
+          </div>
+        </div>
+        <p class="project-desc">
+          Jeu de cartes à collectionner numérique intégrant un système de rareté,
+          d'inventaire et de combat. Explore la gestion de données et les
+          mécaniques de jeu interactives.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">En cours de définition</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2025 — Nathan Chapuis · Tous droits réservés</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/chapuis-nathan-3a4095335" target="_blank" rel="noopener"
+          aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:nathanchapuis15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

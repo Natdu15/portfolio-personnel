@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informatique — Nathan Chapuis</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="js/theme.js"></script>
+  <style>
+    .info-hero {
+      height: 55vh; min-height: 350px;
+      background: url("images/matrix.jpg") center/cover no-repeat;
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .info-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.68); }
+    .info-hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+    .info-hero-content h1 { font-size: clamp(2.2rem, 5vw, 4rem); color: #fff; margin-bottom: 0.8rem; }
+    .info-hero-content h1 span { color: var(--accent); }
+    .info-hero-content p { color: rgba(255,255,255,0.80); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+    .skills-section { padding: 4rem 2rem 6rem; max-width: 720px; margin: 0 auto; }
+    .skills-intro { color: var(--text2); margin-bottom: 2.5rem; font-size: 1rem; line-height: 1.7; }
+    .skills-intro strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="page-overlay"></div>
+  <header class="navbar" id="navbar">
+    <a href="home.html" class="nav-logo"><img src="images/logo.png" alt="NC"></a>
+    <nav class="nav-links">
+      <a href="home.html">Accueil</a>
+      <a href="etude.html">Études</a>
+      <a href="passions.html">Passions</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projet.html">Projets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Thème"><i class="fas fa-moon"></i></button>
+      <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <div class="info-hero">
+      <div class="info-hero-content">
+        <h1>Informa<span>tique</span></h1>
+        <p>Une passion née à 13 ans qui m'a mené jusqu'au développement web et à la science des données.</p>
+      </div>
+    </div>
+
+    <div class="skills-section">
+      <p class="skills-intro reveal">
+        L'informatique est un domaine que j'utilise au quotidien. J'ai commencé à m'intéresser au codage
+        (<strong>HTML, CSS, JS</strong>) à partir de mes 13-14 ans. J'ai même effectué un stage en développement web,
+        ce qui a conforté mon choix de poursuivre dans cette voie.
+      </p>
+      <p class="skills-intro reveal" style="margin-top:-1rem">
+        Voici les langages que j'ai utilisés pour des projets professionnels et personnels,
+        avec mon niveau de maîtrise actuel :
+      </p>
+
+      <div class="reveal">
+        <div class="skill-item">
+          <div class="skill-label">HTML5 <span>70%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label">CSS3 <span>60%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="60%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label">JavaScript <span>20%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="20%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label">Python <span>20%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="20%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label">C++ <span>10%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="10%"></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <a href="passions.html" class="btn-back"><i class="fas fa-arrow-left"></i> Retour</a>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2025 — Nathan Chapuis · Tous droits réservés</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/chapuis-nathan-3a4095335" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:nathanchapuis15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

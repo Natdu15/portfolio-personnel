@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" data-accent="cyan">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nathan Chapuis — Portfolio</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="js/theme.js"></script>
+  <style>
+    html, body { height: 100%; overflow: hidden; }
+    body { display: flex; align-items: center; justify-content: center; background: var(--bg); }
+    .settings-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+    .settings-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 20% 40%, rgba(var(--accent-rgb), 0.10) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 60% at 80% 60%, rgba(var(--accent-rgb), 0.06) 0%, transparent 70%);
+      animation: bgBreath 8s ease-in-out infinite alternate; transition: background 0.6s ease;
+    }
+    .settings-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(var(--accent-rgb), 0.025) 60px, rgba(var(--accent-rgb), 0.025) 61px),
+                        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(var(--accent-rgb), 0.025) 60px, rgba(var(--accent-rgb), 0.025) 61px);
+    }
+    @keyframes bgBreath { from { transform: scale(1); } to { transform: scale(1.12); } }
+    .settings-card {
+      position: relative; z-index: 1; width: min(92vw, 560px);
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 24px;
+      padding: 2.8rem 2.4rem 2.4rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(var(--accent-rgb), 0.08);
+      opacity: 0; transform: translateY(24px);
+    }
+    .settings-hero { text-align: center; margin-bottom: 2.4rem; }
+    .settings-hero .badge {
+      display: inline-block; padding: 0.3rem 0.9rem; background: var(--accent-dim);
+      color: var(--accent); font-family: 'Syne', sans-serif; font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 50px; margin-bottom: 1.2rem;
+    }
+    .settings-hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); color: var(--text); line-height: 1.1; margin-bottom: 0.5rem; }
+    .settings-hero h1 span { color: var(--accent); }
+    .settings-hero p { color: var(--text2); font-size: 0.95rem; }
+    .settings-group { margin-bottom: 1.8rem; }
+    .settings-label { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text2); margin-bottom: 0.85rem; }
+    .theme-switch { display: flex; gap: 0.6rem; }
+    .theme-opt {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.75rem; border: 2px solid var(--border); border-radius: var(--radius-sm);
+      background: var(--card); color: var(--text2); font-family: 'Syne', sans-serif;
+      font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.25s ease;
+    }
+    .theme-opt.selected, .theme-opt:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .color-swatches { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .swatch {
+      width: 36px; height: 36px; border-radius: 50%; border: 3px solid transparent;
+      cursor: pointer; transition: transform 0.25s, box-shadow 0.25s; position: relative;
+    }
+    .swatch::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.25s; }
+    .swatch:hover { transform: scale(1.15); }
+    .swatch.selected::after { border-color: currentColor; }
+    .swatch[data-c="cyan"]   { background: #00f7ff; color: #00f7ff; box-shadow: 0 0 12px rgba(0,247,255,0.4); }
+    .swatch[data-c="red"]    { background: #ff3a1f; color: #ff3a1f; box-shadow: 0 0 12px rgba(255,58,31,0.4); }
+    .swatch[data-c="green"]  { background: #0aff6e; color: #0aff6e; box-shadow: 0 0 12px rgba(10,255,110,0.4); }
+    .swatch[data-c="purple"] { background: #b06cff; color: #b06cff; box-shadow: 0 0 12px rgba(176,108,255,0.4); }
+    .swatch[data-c="gold"]   { background: #ffd234; color: #ffd234; box-shadow: 0 0 12px rgba(255,210,52,0.4); }
+    .settings-divider { height: 1px; background: var(--border); margin: 1.8rem 0; }
+    .enter-btn {
+      width: 100%; padding: 1rem; background: var(--accent); color: var(--bg);
+      font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase; border: none;
+      border-radius: var(--radius); cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+      transition: transform 0.25s, box-shadow 0.25s, filter 0.25s;
+    }
+    .enter-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(var(--accent-rgb), 0.35); filter: brightness(1.06); }
+    .enter-btn i { transition: transform 0.25s; }
+    .enter-btn:hover i { transform: translateX(4px); }
+  </style>
+</head>
+<body>
+  <div class="settings-bg"></div>
+  <div class="settings-card">
+    <div class="settings-hero">
+      <div class="badge">✦ Portfolio Personnel</div>
+      <h1>Nathan <span>Chapuis</span></h1>
+      <p>Étudiant BUT Science des Données · Aurillac</p>
+    </div>
+    <div class="settings-group">
+      <div class="settings-label"><i class="fas fa-palette" style="margin-right:0.4rem"></i>Apparence</div>
+      <div class="theme-switch">
+        <button class="theme-opt" data-t="dark" id="btn-dark"><i class="fas fa-moon"></i> Sombre</button>
+        <button class="theme-opt" data-t="light" id="btn-light"><i class="fas fa-sun"></i> Clair</button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <div class="settings-label"><i class="fas fa-droplet" style="margin-right:0.4rem"></i>Couleur d'accentuation</div>
+      <div class="color-swatches">
+        <button class="swatch" data-c="cyan"   title="Cyan"></button>
+        <button class="swatch" data-c="red"    title="Rouge"></button>
+        <button class="swatch" data-c="green"  title="Vert"></button>
+        <button class="swatch" data-c="purple" title="Violet"></button>
+        <button class="swatch" data-c="gold"   title="Or"></button>
+      </div>
+    </div>
+    <div class="settings-divider"></div>
+    <button class="enter-btn" id="enter-btn">
+      Entrer dans le portfolio <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    (function () {
+      var t = localStorage.getItem('nc-theme') || 'dark';
+      var a = localStorage.getItem('nc-accent') || 'cyan';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.setAttribute('data-accent', a);
+      document.getElementById('btn-' + t).classList.add('selected');
+      document.querySelectorAll('.swatch').forEach(function(s){ s.classList.toggle('selected', s.dataset.c === a); });
+    })();
+
+    function setTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('nc-theme', t);
+      document.querySelectorAll('.theme-opt').forEach(function(b){ b.classList.toggle('selected', b.dataset.t === t); });
+    }
+    function setAccent(a) {
+      document.documentElement.setAttribute('data-accent', a);
+      localStorage.setItem('nc-accent', a);
+      document.querySelectorAll('.swatch').forEach(function(s){ s.classList.toggle('selected', s.dataset.c === a); });
+    }
+
+    document.querySelectorAll('.theme-opt').forEach(function(b){ b.addEventListener('click', function(){ setTheme(this.dataset.t); }); });
+    document.querySelectorAll('.swatch').forEach(function(s){ s.addEventListener('click', function(){ setAccent(this.dataset.c); }); });
+    document.getElementById('enter-btn').addEventListener('click', function() {
+      gsap.to('.settings-card', { opacity: 0, y: -20, duration: 0.45, ease: 'power2.in', onComplete: function(){ window.location.href = 'home.html'; } });
+    });
+
+    gsap.to('.settings-card', { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out', delay: 0.15 });
+  </script>
+</body>
+</html>

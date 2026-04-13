@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil — Nathan Chapuis</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="js/theme.js"></script>
+  <style>
+    .home-hero {
+      padding: 9rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+    }
+    .home-hero .eyebrow {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      background: var(--accent-dim); color: var(--accent);
+      font-family: 'Syne', sans-serif; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      border-radius: 50px; margin-bottom: 1.2rem;
+    }
+    .home-hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.0; margin-bottom: 1rem; }
+    .home-hero h1 .name { color: var(--accent); display: block; }
+    .home-hero p { font-size: 1.15rem; color: var(--text2); max-width: 520px; margin: 0 auto 2.5rem; }
+    .home-hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.8rem 1.8rem; border: 1.5px solid var(--border);
+      border-radius: 50px; font-family: 'Syne', sans-serif;
+      font-size: 0.88rem; font-weight: 600; color: var(--text2);
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+    /* Cards grid */
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 0 2rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media(max-width:900px){ .home-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:560px){ .home-grid { grid-template-columns: 1fr; } }
+
+    .home-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      border: 1px solid var(--border);
+      transition: transform 0.38s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.38s ease, border-color 0.3s;
+    }
+    .home-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(var(--accent-rgb), 0.4);
+      box-shadow: 0 20px 56px rgba(0,0,0,0.35), 0 0 32px rgba(var(--accent-rgb), 0.12);
+    }
+    .home-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .home-card:hover img { transform: scale(1.06); }
+    .home-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.4rem;
+      transition: background 0.3s;
+    }
+    .home-card:hover .home-card-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+    }
+    .home-card-label {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.3rem;
+    }
+    .home-card-title {
+      font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700;
+      color: #fff; margin-bottom: 0.4rem;
+    }
+    .home-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
+    .home-card-arrow {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 0.8rem;
+      transform: translateX(-4px); opacity: 0;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .home-card:hover .home-card-arrow { opacity: 1; transform: translateX(0); }
+  </style>
+</head>
+<body>
+  <div class="page-overlay"></div>
+  <header class="navbar" id="navbar">
+    <a href="home.html" class="nav-logo">
+      <img src="images/logo.png" alt="NC">
+    </a>
+    <nav class="nav-links">
+      <a href="home.html" class="active">Accueil</a>
+      <a href="etude.html">Études</a>
+      <a href="passions.html">Passions</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projet.html">Projets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Thème"><i class="fas fa-moon"></i></button>
+      <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <section class="home-hero">
+      <div class="eyebrow reveal">✦ Bienvenue sur mon portfolio</div>
+      <h1 class="reveal">
+        Bonjour,<br>je suis
+        <span class="name">Nathan Chapuis</span>
+      </h1>
+      <p class="reveal">Étudiant en BUT Science des Données à l'IUT Clermont Auvergne · Passionné d'informatique, de sport et de jeux vidéos.</p>
+      <div class="cta-row reveal">
+        <a href="etude.html" class="btn-primary"><i class="fas fa-graduation-cap"></i> Mon parcours</a>
+        <a href="contact.html" class="btn-ghost"><i class="fas fa-envelope"></i> Me contacter</a>
+      </div>
+    </section>
+
+    <section class="reveal-group">
+      <div class="home-grid">
+        <a href="etude.html" class="home-card reveal-item">
+          <img src="images/etude.jpg" alt="Études">
+          <div class="home-card-overlay">
+            <div class="home-card-label">Parcours</div>
+            <div class="home-card-title">Mes Études</div>
+            <div class="home-card-desc">Du collège jusqu'au BUT Science des Données.</div>
+          </div>
+          <div class="home-card-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="passions.html" class="home-card reveal-item">
+          <img src="images/passions.jpg" alt="Passions">
+          <div class="home-card-overlay">
+            <div class="home-card-label">Loisirs</div>
+            <div class="home-card-title">Mes Passions</div>
+            <div class="home-card-desc">Jeux vidéos, informatique, sport et internet.</div>
+          </div>
+          <div class="home-card-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="competences.html" class="home-card reveal-item">
+          <img src="images/skill.jpg" alt="Compétences">
+          <div class="home-card-overlay">
+            <div class="home-card-label">Savoir-faire</div>
+            <div class="home-card-title">Compétences</div>
+            <div class="home-card-desc">Langages, outils et soft skills acquis.</div>
+          </div>
+          <div class="home-card-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="projet.html" class="home-card reveal-item">
+          <img src="images/projet.jpg" alt="Projets">
+          <div class="home-card-overlay">
+            <div class="home-card-label">Création</div>
+            <div class="home-card-title">Mes Projets</div>
+            <div class="home-card-desc">Tournoi manga, vulgarisation, TCG numérique.</div>
+          </div>
+          <div class="home-card-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="contact.html" class="home-card reveal-item">
+          <img src="images/contact.jpg" alt="Contact">
+          <div class="home-card-overlay">
+            <div class="home-card-label">Échangeons</div>
+            <div class="home-card-title">Me Contacter</div>
+            <div class="home-card-desc">Gmail, LinkedIn ou Calendly pour planifier.</div>
+          </div>
+          <div class="home-card-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2025 — Nathan Chapuis · Tous droits réservés</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/chapuis-nathan-3a4095335" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:nathanchapuis15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
